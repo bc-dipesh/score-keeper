@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Score Keeper</string>
+    <string name="TEAM_A_NAME">Team A</string>
+    <string name="INITIAL_SCORE">0</string>
+    <string name="TEAM_A_SCORE_0_BTN">0</string>
+    <string name="TEAM_B_SCORE_0_BTN">0</string>
+    <string name="TEAM_A_SCORE_3_BTN">+3 Points</string>
+    <string name="FREE_THROW_BTN">Free Throw</string>
+    <string name="TEAM_B_NAME">Team B</string>
+    <string name="TEAM_B_SCORE_3_BTN">+3 Points</string>
+    <string name="RESET_BTN">Reset</string>
 </resources>

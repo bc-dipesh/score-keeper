@@ -23,35 +23,35 @@
                 style="@style/team_represent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Team A" />
+                android:text="@string/TEAM_A_NAME" />
 
             <TextView
                 android:id="@+id/TEAM_A_SCORE"
                 style="@style/team_score"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0" />
+                android:text="@string/INITIAL_SCORE" />
 
             <Button
                 android:id="@+id/TEAM_A_SCORE_0_BTN"
                 style="@style/score_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0" />
+                android:text="@string/TEAM_A_SCORE_0_BTN" />
 
             <Button
                 android:id="@+id/TEAM_A_SCORE_1_BTN"
                 style="@style/score_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="+3 Points" />
+                android:text="@string/TEAM_A_SCORE_3_BTN" />
 
             <Button
                 android:id="@+id/TEAM_A_FREE_THROW_BTN"
                 style="@style/score_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Free Throw" />
+                android:text="@string/FREE_THROW_BTN" />
         </LinearLayout>
 
         <View
@@ -70,35 +70,35 @@
                 style="@style/team_represent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Team B" />
+                android:text="@string/TEAM_B_NAME" />
 
             <TextView
                 android:id="@+id/TEAM_B_SCORE"
                 style="@style/team_score"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0" />
+                android:text="@string/INITIAL_SCORE" />
 
             <Button
                 android:id="@+id/TEAM_B_SCORE_0_BTN"
                 style="@style/score_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0" />
+                android:text="@string/TEAM_B_SCORE_0_BTN" />
 
             <Button
                 android:id="@+id/TEAM_B_SCORE_1_BTN"
                 style="@style/score_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="+3 Points" />
+                android:text="@string/TEAM_B_SCORE_3_BTN" />
 
             <Button
                 android:id="@+id/TEAM_B_FREE_THROW_BTN"
                 style="@style/score_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Free Throw" />
+                android:text="@string/FREE_THROW_BTN" />
         </LinearLayout>
 
     </LinearLayout>
@@ -109,6 +109,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Reset" />
+        android:text="@string/RESET_BTN" />
 
 </RelativeLayout>

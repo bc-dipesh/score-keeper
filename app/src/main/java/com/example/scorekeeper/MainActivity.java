@@ -43,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
         updateScore(teamBScore, scoreTeamB);
     }
 
+    // display a short toast message
+    private void displayToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         teamAScore1Btn = findViewById(R.id.TEAM_A_SCORE_1_BTN);
         teamAFreeThrowBtn = findViewById(R.id.TEAM_A_FREE_THROW_BTN);
 
-        // team v
+        // team b
         scoreTeamB = findViewById(R.id.TEAM_B_SCORE);
         teamBScore0Btn = findViewById(R.id.TEAM_B_SCORE_0_BTN);
         teamBScore1Btn = findViewById(R.id.TEAM_B_SCORE_1_BTN);
@@ -75,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             updateScore(teamAScore, scoreTeamA);
         });
 
-        teamAFreeThrowBtn.setOnClickListener(view -> Toast.makeText(this, "FREE_THROW_BTN is clicked", Toast.LENGTH_SHORT).show());
+        teamAFreeThrowBtn.setOnClickListener(view -> displayToast("This is a free throw"));
 
         // onClickListener for team b
         teamBScore0Btn.setOnClickListener(view -> {
@@ -89,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
         scoreResetBtn.setOnClickListener(view -> resetScore());
 
-        teamBFreeThrowBtn.setOnClickListener(view -> Toast.makeText(this, "FREE_THROW_BTN is clicked", Toast.LENGTH_SHORT).show());
+        teamBFreeThrowBtn.setOnClickListener(view -> displayToast("This is a free throw"));
     }
+
 }
