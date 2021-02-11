@@ -40,7 +40,7 @@
                 android:text="@string/TEAM_A_SCORE_0_BTN" />
 
             <Button
-                android:id="@+id/TEAM_A_SCORE_1_BTN"
+                android:id="@+id/TEAM_A_SCORE_3_BTN"
                 style="@style/score_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 android:text="@string/TEAM_B_SCORE_0_BTN" />
 
             <Button
-                android:id="@+id/TEAM_B_SCORE_1_BTN"
+                android:id="@+id/TEAM_B_SCORE_3_BTN"
                 style="@style/score_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

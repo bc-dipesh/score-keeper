@@ -1,51 +1,32 @@
 package com.example.scorekeeper;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-//public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.scorekeeper.model.Team;
+
 public class MainActivity extends AppCompatActivity {
 
-    // buttons and text views
-    // team a views
-    private TextView scoreTeamA;
-    private Button teamAScore0Btn;
-    private Button teamAScore1Btn;
-    private Button teamAFreeThrowBtn;
+    // team a
+    Team teamA;
 
-    // team b views
-    private TextView scoreTeamB;
-    private Button teamBScore0Btn;
-    private Button teamBScore1Btn;
-    private Button teamBFreeThrowBtn;
+    // team b
+    Team teamB;
 
-    // the score reset button
-    private Button scoreResetBtn;
-
-    // the score keeper variable
-    private int teamAScore;
-    private int teamBScore;
+    // common functions
+    // display a short toast message
+    public void displayToast(Context context, String message) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+    }
 
     // updates the score in the specific team text view
-    private void updateScore(int score, TextView view) {
-        view.setText("" + score);
-    }
-
-    private void resetScore() {
-        teamAScore = 0;
-        teamBScore = 0;
-
-        updateScore(teamAScore, scoreTeamA);
-        updateScore(teamBScore, scoreTeamB);
-    }
-
-    // display a short toast message
-    private void displayToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    public void displayScore(TextView textView, int score) {
+        textView.setText(String.valueOf(score));
     }
 
     @Override
@@ -55,46 +36,46 @@ public class MainActivity extends AppCompatActivity {
 
         // initialize buttons and text views
         // team a
-        scoreTeamA = findViewById(R.id.TEAM_A_SCORE);
-        teamAScore0Btn = findViewById(R.id.TEAM_A_SCORE_0_BTN);
-        teamAScore1Btn = findViewById(R.id.TEAM_A_SCORE_1_BTN);
-        teamAFreeThrowBtn = findViewById(R.id.TEAM_A_FREE_THROW_BTN);
+        TextView scoreTeamATxtView = findViewById(R.id.TEAM_A_SCORE);
+        Button teamAScore3Btn = findViewById(R.id.TEAM_A_SCORE_3_BTN);
+        Button teamAFreeThrowBtn = findViewById(R.id.TEAM_A_FREE_THROW_BTN);
 
         // team b
-        scoreTeamB = findViewById(R.id.TEAM_B_SCORE);
-        teamBScore0Btn = findViewById(R.id.TEAM_B_SCORE_0_BTN);
-        teamBScore1Btn = findViewById(R.id.TEAM_B_SCORE_1_BTN);
-        teamBFreeThrowBtn = findViewById(R.id.TEAM_B_FREE_THROW_BTN);
+        TextView scoreTeamBTxtView = findViewById(R.id.TEAM_B_SCORE);
+        Button teamBScore3Btn = findViewById(R.id.TEAM_B_SCORE_3_BTN);
+        Button teamBFreeThrowBtn = findViewById(R.id.TEAM_B_FREE_THROW_BTN);
 
-        scoreResetBtn = findViewById(R.id.SCORE_RESET_BTN);
+        Button scoreResetBtn = findViewById(R.id.SCORE_RESET_BTN);
+
+        // initialize team a and team b with their respective views
+        teamA = new Team(scoreTeamATxtView, teamAScore3Btn, teamAFreeThrowBtn);
+        teamB = new Team(scoreTeamBTxtView, teamBScore3Btn, teamBFreeThrowBtn);
 
 
         // add onClickListener
         // onClickListener for team a
-        teamAScore0Btn.setOnClickListener(view -> {
-            updateScore(teamAScore, scoreTeamA);
+        teamA.getScore3Btn().setOnClickListener(view -> {
+            teamA.updateScore(3);
+            displayScore(teamA.getScoreTxtView(), teamA.getScore());
         });
 
-        teamAScore1Btn.setOnClickListener(view -> {
-            teamAScore += 3;
-            updateScore(teamAScore, scoreTeamA);
-        });
-
-        teamAFreeThrowBtn.setOnClickListener(view -> displayToast("This is a free throw"));
+        teamA.getFreeThrowBtn().setOnClickListener(view -> displayToast(this, "This is a free throw"));
 
         // onClickListener for team b
-        teamBScore0Btn.setOnClickListener(view -> {
-            updateScore(teamBScore, scoreTeamB);
+        teamB.getScore3Btn().setOnClickListener(view -> {
+            teamB.updateScore(3);
+            displayScore(teamB.getScoreTxtView(), teamB.getScore());
         });
 
-        teamBScore1Btn.setOnClickListener(view -> {
-            teamBScore += 3;
-            updateScore(teamBScore, scoreTeamB);
+        teamB.getFreeThrowBtn().setOnClickListener(view -> displayToast(this, "This is a free throw"));
+
+        scoreResetBtn.setOnClickListener(view -> {
+            teamA.resetScore();
+            teamB.resetScore();
+            displayScore(teamA.getScoreTxtView(), teamA.getScore());
+            displayScore(teamB.getScoreTxtView(), teamB.getScore());
         });
 
-        scoreResetBtn.setOnClickListener(view -> resetScore());
-
-        teamBFreeThrowBtn.setOnClickListener(view -> displayToast("This is a free throw"));
     }
 
 }
