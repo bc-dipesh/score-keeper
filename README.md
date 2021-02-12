@@ -13,3 +13,6 @@
 ### Reset Score
 
 <img src="./initial-screen.png" width=300>
+
+### App running gif
+![](./score-keeper.gif)
