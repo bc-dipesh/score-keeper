@@ -7,6 +7,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.scorekeeper.model.Team;
 
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // initialize buttons and text views
+        // get buttons and text views
         // team a
         TextView scoreTeamATxtView = findViewById(R.id.TEAM_A_SCORE);
         Button teamAScore3Btn = findViewById(R.id.TEAM_A_SCORE_3_BTN);
