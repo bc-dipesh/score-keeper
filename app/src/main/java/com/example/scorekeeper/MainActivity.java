@@ -2,16 +2,22 @@ package com.example.scorekeeper;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.scorekeeper.model.Team;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
+    private int counter = 0;
 
     // team a
     Team teamA;
@@ -30,10 +36,56 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(String.valueOf(score));
     }
 
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        ++counter;
+        Log.d(TAG, counter + ". onStop() called");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        ++counter;
+        Log.d(TAG, counter + ". onPause() called");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ++counter;
+        Log.d(TAG, counter + ". onResume() called");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        ++counter;
+        Log.d(TAG, counter + ". onStart() called");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ++counter;
+        Log.d(TAG, counter + ". onDestroy() called");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        ++counter;
+        Log.d(TAG, counter + ". onRestart() called");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ++counter;
+        Log.d(TAG, counter + ". onCreate() called");
 
         // get buttons and text views
         // team a
@@ -51,6 +103,16 @@ public class MainActivity extends AppCompatActivity {
         // initialize team a and team b with their respective views
         teamA = new Team(scoreTeamATxtView, teamAScore3Btn, teamAFreeThrowBtn);
         teamB = new Team(scoreTeamBTxtView, teamBScore3Btn, teamBFreeThrowBtn);
+
+        // restore previous state score data
+        if (savedInstanceState != null) {
+            teamA.setScore(savedInstanceState.getInt("teamAScore"));
+            teamB.setScore(savedInstanceState.getInt("teamBScore"));
+
+            // display the score
+            displayScore(teamA.getScoreTxtView(), teamA.getScore());
+            displayScore(teamB.getScoreTxtView(), teamB.getScore());
+        }
 
 
         // add onClickListener
@@ -79,4 +141,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        ++counter;
+        Log.d(TAG, counter + ". onSaveInstanceState() called");
+        outState.putInt("teamAScore", teamA.getScore());
+        outState.putInt("teamBScore", teamB.getScore());
+    }
 }
