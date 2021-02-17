@@ -7,101 +7,107 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/TEAM_A"
-                style="@style/team_represent"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/TEAM_A_NAME" />
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/TEAM_A_SCORE"
-                style="@style/team_score"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/INITIAL_SCORE" />
+                <TextView
+                    android:id="@+id/TEAM_A"
+                    style="@style/team_represent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/TEAM_A_NAME" />
 
-            <Button
-                android:id="@+id/TEAM_A_SCORE_0_BTN"
-                style="@style/score_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/TEAM_A_SCORE_0_BTN" />
+                <TextView
+                    android:id="@+id/TEAM_A_SCORE"
+                    style="@style/team_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/INITIAL_SCORE" />
 
-            <Button
-                android:id="@+id/TEAM_A_SCORE_3_BTN"
-                style="@style/score_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/TEAM_A_SCORE_3_BTN" />
+                <Button
+                    android:id="@+id/TEAM_A_SCORE_0_BTN"
+                    style="@style/score_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/TEAM_A_SCORE_0_BTN" />
 
-            <Button
-                android:id="@+id/TEAM_A_FREE_THROW_BTN"
-                style="@style/score_btn"
-                android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/TEAM_A_SCORE_3_BTN"
+                    style="@style/score_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/TEAM_A_SCORE_3_BTN" />
+
+                <Button
+                    android:id="@+id/TEAM_A_FREE_THROW_BTN"
+                    style="@style/score_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/FREE_THROW_BTN" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/FREE_THROW_BTN" />
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/TEAM_B"
+                    style="@style/team_represent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/TEAM_B_NAME" />
+
+                <TextView
+                    android:id="@+id/TEAM_B_SCORE"
+                    style="@style/team_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/INITIAL_SCORE" />
+
+                <Button
+                    android:id="@+id/TEAM_B_SCORE_0_BTN"
+                    style="@style/score_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/TEAM_B_SCORE_0_BTN" />
+
+                <Button
+                    android:id="@+id/TEAM_B_SCORE_3_BTN"
+                    style="@style/score_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/TEAM_B_SCORE_3_BTN" />
+
+                <Button
+                    android:id="@+id/TEAM_B_FREE_THROW_BTN"
+                    style="@style/score_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/FREE_THROW_BTN" />
+            </LinearLayout>
+
         </LinearLayout>
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@color/black" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/TEAM_B"
-                style="@style/team_represent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/TEAM_B_NAME" />
-
-            <TextView
-                android:id="@+id/TEAM_B_SCORE"
-                style="@style/team_score"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/INITIAL_SCORE" />
-
-            <Button
-                android:id="@+id/TEAM_B_SCORE_0_BTN"
-                style="@style/score_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/TEAM_B_SCORE_0_BTN" />
-
-            <Button
-                android:id="@+id/TEAM_B_SCORE_3_BTN"
-                style="@style/score_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/TEAM_B_SCORE_3_BTN" />
-
-            <Button
-                android:id="@+id/TEAM_B_FREE_THROW_BTN"
-                style="@style/score_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/FREE_THROW_BTN" />
-        </LinearLayout>
-
-    </LinearLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/SCORE_RESET_BTN"
